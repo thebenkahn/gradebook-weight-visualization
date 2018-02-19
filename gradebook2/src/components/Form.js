@@ -6,6 +6,7 @@ import {ButtonToolbar} from 'react-bootstrap';
 import {Alert} from 'react-bootstrap';
 import {Form} from 'react-bootstrap';
 import {FormGroup} from 'react-bootstrap';
+import {PageHeader} from 'react-bootstrap';
 
 
 
@@ -51,9 +52,13 @@ render(){
   return (
 
     <div>
-      <h2>My Gradebook Weight Calculator</h2>
+      <PageHeader>
+          Gradebook Weight Calculator
+      </PageHeader>
+      <h6>An Open Source Project by Benjamin Kahn</h6>
       <br/>
-    {/*   <h1>current state text is {this.state.text}</h1> */}
+        <p>Enter a grade item name and a point value.
+          This app will calculate each item's weight and display a chart to help you visualize the relative weight of each of your gradeable items.</p>
       <form onSubmit={this.onSubmit}>
         <FormGroup
             controlId="formGradeItem"
