@@ -40,13 +40,7 @@ class App extends Component {
       <div className="App">
         <Form onChange={fields => this.onChange(fields)} onGradeItemAdd={this.handleGradeItemAdd}/>
 
-        <ul className="list-group">
-          {
-              this.state.gradeItems.map(gradeItem => {
-                return <li className="list-group-item" gradeitem={gradeItem} key={gradeItem.id}>{gradeItem.name}: {gradeItem.points}</li>
-              })
-          }
-      </ul>
+    
 
     {/*    <Chart name={this.state.fields.gradeItemName} points={this.state.fields.gradeItemPoints} gradeItems={this.props.gradeItems}/> */}
           <Chart gradeItems={this.state.gradeItems}/>

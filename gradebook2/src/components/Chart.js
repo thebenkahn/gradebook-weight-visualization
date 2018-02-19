@@ -19,20 +19,15 @@ class Chart extends Component{
     )
   }
 
-
-
-
-
       return(
         <div>
           <h3>Total Gradebook points: {gradeBookTotal}</h3>
-          <br />
-
-
-          <hr />
 
           {this.props.gradeItems.map(gradeItem => {
-            return <li className="list-group-item" gradeitem={gradeItem} key={gradeItem.id}>{gradeItem.name}: {gradeItem.points}</li>
+            return <li className="list-group-item"
+              gradeitem={gradeItem}
+              key={gradeItem.id}>{gradeItem.name}: {gradeItem.points}
+              :  Weight: { ((gradeItem.points/gradeBookTotal) *100).toFixed(2)}% </li>
           }
         )
       }
@@ -43,7 +38,7 @@ class Chart extends Component{
                       datasets: [{
                         data:
                             chartDataPoints,
-                        backgroundColor: ['#00427F', '#4CA9FF', '#00BF9A']
+                        backgroundColor: ['#00427F', '#4CA9FF', '#00BF9A', '#483D99', '#5B51FF', '#21FFEA', '#52FFB8', '#0680CC', '#069DCC', '#759951']
                       }]
                 }}
                 width={100}
