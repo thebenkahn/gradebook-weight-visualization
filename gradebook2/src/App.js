@@ -10,18 +10,7 @@ import Chart from './components/Chart'
 class App extends Component {
 
   state = {
-    fields: {},
     gradeItems: []
-
-  };
-
-  onChange = updatedValue => {
-    this.setState({
-      fields: {
-        ...this.state.fields,
-        ...updatedValue
-      }
-    });
   };
 
   handleGradeItemAdd = (name, points) => {
@@ -34,17 +23,11 @@ class App extends Component {
       this.setState({gradeItems: this.state.gradeItems.concat(newGradeItem)});
   }
 
-
   render() {
     return (
       <div className="App">
         <Form onChange={fields => this.onChange(fields)} onGradeItemAdd={this.handleGradeItemAdd}/>
-
-    
-
-    {/*    <Chart name={this.state.fields.gradeItemName} points={this.state.fields.gradeItemPoints} gradeItems={this.props.gradeItems}/> */}
-          <Chart gradeItems={this.state.gradeItems}/>
-
+        <Chart gradeItems={this.state.gradeItems}/>
       </div>
     );
   }

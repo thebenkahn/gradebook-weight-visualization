@@ -44,6 +44,7 @@ class Form extends Component {
         this.props.onGradeItemAdd(text, points);
         this.refs.text.value = '';
         this.refs.points.value = '';
+        this.refs.text.focus();
     }
 
     getChartData() {
@@ -63,14 +64,7 @@ render(){
     {/*   <h1>current state text is {this.state.text}</h1> */}
       <form onSubmit={this.onSubmit}>
           <div className="form-group">
-          {/*  <span><h3>Old Way</h3></span>
-            <br />
-            <input name="gradeItemName" placeholder='Grade Item' value={this.state.gradeItemName} onChange={e => this.change(e)} />
-            <br/>
-           <input name="gradeItemPoints" placeholder='Point Value' value={this.state.gradeItemPoints} onChange={e => this.change(e)} />
-            <br/>
-            */}
-            <span><h3>New Way</h3></span>
+
           {/*  <input type="text" onChange={this.changeText} value={this.state.text}></input> */}
             <input type="text" ref="text" onChange={this.onChange} class="form-control" placeholder="Item Name"></input>
             <input type="text" ref="points" onChange={this.onChange} class="form-control" placeholder="Point Value"></input>
