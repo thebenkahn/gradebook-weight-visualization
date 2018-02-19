@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Form from './components/Form';
+import GradeForm from './components/Form';
 import Chart from './components/Chart'
 
 
@@ -26,7 +26,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Form onChange={fields => this.onChange(fields)} onGradeItemAdd={this.handleGradeItemAdd}/>
+        <GradeForm onChange={fields => this.onChange(fields)} onGradeItemAdd={this.handleGradeItemAdd}/>
         <Chart gradeItems={this.state.gradeItems}/>
       </div>
     );

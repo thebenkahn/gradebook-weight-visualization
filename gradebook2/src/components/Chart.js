@@ -26,8 +26,8 @@ class Chart extends Component{
           {this.props.gradeItems.map(gradeItem => {
             return <li className="list-group-item"
               gradeitem={gradeItem}
-              key={gradeItem.id}>{gradeItem.name}: {gradeItem.points}
-              :  Weight: { ((gradeItem.points/gradeBookTotal) *100).toFixed(2)}% </li>
+              key={gradeItem.id}> <strong>Name: </strong>{gradeItem.name}<strong> | Point Value: </strong> {gradeItem.points} |
+            <strong> Weight: </strong> { ((gradeItem.points/gradeBookTotal) *100).toFixed(2)}% </li>
           }
         )
       }
@@ -44,7 +44,18 @@ class Chart extends Component{
                 width={100}
                 height={50}
                 options={{
-                  maintainAspectRatio: true
+                  maintainAspectRatio: true,
+                  layout: {
+                    padding: {
+                        left: 25,
+                        right: 0,
+                        top: 15,
+                        bottom: 0,
+                    }},
+                    legend: {
+                      display: true,
+                      position: 'right'
+                    }
                   }}
               />
 

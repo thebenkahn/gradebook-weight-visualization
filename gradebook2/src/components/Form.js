@@ -1,11 +1,16 @@
 import React, {Component} from 'react';
 import Chart from './Chart'
 import App from '../App'
-import { Button } from 'react-bootstrap';
+import {Button} from 'react-bootstrap';
+import {ButtonToolbar} from 'react-bootstrap';
+import {Alert} from 'react-bootstrap';
+import {Form} from 'react-bootstrap';
+import {FormGroup} from 'react-bootstrap';
 
 
 
-class Form extends Component {
+
+class GradeForm extends Component {
   state = {
     gradeItemName: '',
     gradeItemPoints: '',
@@ -18,15 +23,6 @@ class Form extends Component {
   onChange(greeting, greeting2){
     console.log('changing text...')
   }
-
-
-  change = e => {
-    this.props.onChange({ [e.target.name]: e.target.value });
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-    this.getChartData();
-  };
 
   onSubmit = (e) => {
     e.preventDefault();
@@ -47,10 +43,6 @@ class Form extends Component {
         this.refs.text.focus();
     }
 
-    getChartData() {
-      //return <App name={this.state.gradeItemName} points={this.state.gradeItemPoints} gradeItems={this.state.gradeItems}/>
-    }
-
     changeText = (e) => {
     this.setState({text: e.target.value});
     }
@@ -59,25 +51,28 @@ render(){
   return (
 
     <div>
-      <h2>My Gradebook Weight Caulculator</h2>
+      <h2>My Gradebook Weight Calculator</h2>
       <br/>
     {/*   <h1>current state text is {this.state.text}</h1> */}
       <form onSubmit={this.onSubmit}>
-          <div className="form-group">
+        <FormGroup
+            controlId="formGradeItem"
+          >
 
-          {/*  <input type="text" onChange={this.changeText} value={this.state.text}></input> */}
+          <div className="form-group">
             <input type="text" ref="text" onChange={this.onChange} class="form-control" placeholder="Item Name"></input>
             <input type="text" ref="points" onChange={this.onChange} class="form-control" placeholder="Point Value"></input>
-            <button type="submit">Create Grade Item</button>
+            <ButtonToolbar>
+              <Button bsStyle="primary" type="submit">Create Grade Item</Button>
+            </ButtonToolbar>
           </div>
+          </FormGroup>
     </form>
-
-
-    </div>
+  </div>
   )
 }
 }
 
 
 
-export default Form;
+export default GradeForm;
