@@ -11,23 +11,23 @@ class Chart extends Component{
       var chartDataPoints = [];
       var chartDataLabels = [];
 
-      {this.props.gradeItems.map(point => {
-        gradeBookTotal = gradeBookTotal + Number(point.points);
-        chartDataPoints.push(point.points)
-        chartDataLabels.push(point.name)
+      {this.props.gradeItems.map(item => {
+        gradeBookTotal = gradeBookTotal + Number(item.points);
+        chartDataPoints.push(item.points)
+        chartDataLabels.push(item.name)
       }
     )
   }
 
       return(
         <div>
-          <h3>Total Gradebook points: {gradeBookTotal}</h3>
+          <h3>Total Gradebook points: <span className="totalPoints">{gradeBookTotal}</span></h3>
 
           {this.props.gradeItems.map(gradeItem => {
             return <li className="list-group-item"
               gradeitem={gradeItem}
-              key={gradeItem.id}> <strong>Name: </strong>{gradeItem.name}<strong> | Point Value: </strong> {gradeItem.points} |
-            <strong> Weight: </strong> { ((gradeItem.points/gradeBookTotal) *100).toFixed(2)}% </li>
+              key={gradeItem.id}> <strong>Name: </strong>{gradeItem.name}<strong> | Point Value:   </strong> {gradeItem.points}
+            <strong>  |  Weight: </strong> { ((gradeItem.points/gradeBookTotal) *100).toFixed(2)}% </li>
           }
         )
       }

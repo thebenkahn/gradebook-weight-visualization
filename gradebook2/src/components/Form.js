@@ -4,36 +4,29 @@ import App from '../App'
 import {Button} from 'react-bootstrap';
 import {ButtonToolbar} from 'react-bootstrap';
 import {Alert} from 'react-bootstrap';
+import {ControlLabel} from 'react-bootstrap';
 import {Form} from 'react-bootstrap';
 import {FormGroup} from 'react-bootstrap';
+import {FormControl} from 'react-bootstrap';
+import {Jumbotron} from 'react-bootstrap';
 import {PageHeader} from 'react-bootstrap';
-
-
-
 
 class GradeForm extends Component {
   state = {
     gradeItemName: '',
     gradeItemPoints: '',
-    gradeitemWeight: '',
-    text: 'hello world',
+    gradeitemWeight: ''
   };
-
-
-
-  onChange(greeting, greeting2){
-    console.log('changing text...')
-  }
 
   onSubmit = (e) => {
     e.preventDefault();
     var text = this.refs.text.value.trim();
     var points = this.refs.points.value;
-
+      //todo - move validation to Bootstrap form control
       if(!text){
         alert('Please enter a grade item.')
         return;
-      } //else if(isNaN(points)) {
+      }
         else if(isNaN(points) || points > 100 || points <= 0) {
         alert('Please enter a numeric point value between 1 and 100')
         return;
@@ -44,31 +37,20 @@ class GradeForm extends Component {
         this.refs.text.focus();
     }
 
-    changeText = (e) => {
-    this.setState({text: e.target.value});
-    }
 
 render(){
   return (
-
+    //todo enhance Bootstrap on form
     <div>
-      <PageHeader>
-          Gradebook Weight Calculator
-      </PageHeader>
-      <h6>An Open Source Project by Benjamin Kahn</h6>
-      <br/>
-        <p>Enter a grade item name and a point value.
-          This app will calculate each item's weight and display a chart to help you visualize the relative weight of each of your gradeable items.</p>
-      <form onSubmit={this.onSubmit}>
-        <FormGroup
-            controlId="formGradeItem"
-          >
-
+      <form inline onSubmit={this.onSubmit}>
+        <FormGroup bsSize="large" controlId="formGradeItem">
           <div className="form-group">
-            <input type="text" ref="text" onChange={this.onChange} class="form-control" placeholder="Item Name"></input>
-            <input type="text" ref="points" onChange={this.onChange} class="form-control" placeholder="Point Value"></input>
+
+            <input type="text" ref="text" class="form-control" placeholder="Item Name"></input>
+
+            <input type="text" ref="points" class="form-control" placeholder="Point Value"></input>
             <ButtonToolbar>
-              <Button bsStyle="primary" type="submit">Create Grade Item</Button>
+              <Button bsStyle="primary" bsSize="large" type="submit" block>Create Grade Item</Button>
             </ButtonToolbar>
           </div>
           </FormGroup>
@@ -77,7 +59,4 @@ render(){
   )
 }
 }
-
-
-
 export default GradeForm;
